@@ -1,32 +1,18 @@
-import React,{useState} from "react";
-
+import React, { useState } from 'react';
+ 
 function App() {
-
-  const [task, setTask] = useState(['Pagar a conta de luz',
-        'estudar react hooks']);
-      
-  const [name, setName] = useState('Matias', 'Vih0', 'karol');
-  const [input, setInput] =  useState('');
-
-  function handleAdd(){
-    setTask([...task, input])
-    setInput('');
-  
-  }
-
-
+ 
+  // Declarar uma nova variável de state, na qual chamaremos de "contador"
+  const [count, setContador] = useState(0);
+ 
   return (
     <div>
-     <ul>
-      {task.map(task=>(<li key={task} > {task} </li>))}
-     </ul>
-
-    <input type="text" value={input} onChange={(event => setInput(event.target.value))}/>
-
-    <button type="button" onClick={handleAdd}>Adicionar</button>
-
+      <p>You clicked {count} times</p>
+      <button onClick={() => setContador(count + 1)}>
+          Aumentar
+      </button>
     </div>
   );
-};
+}
 
 export default App;
